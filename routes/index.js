@@ -3,7 +3,7 @@ const passport = require('passport');
 
 // The root route renders our only view
 router.get('/', function(req, res, next) {
-  res.redirect('/customers') //FOR NOW CUSTOMERS, ONCE WE GET THIS WOKRING WE CAN PLAY AROUND WITH A HOMEPAGE IDEA
+  res.redirect('/') //FOR NOW CUSTOMERS, ONCE WE GET THIS WOKRING WE CAN PLAY AROUND WITH A HOMEPAGE IDEA
 });
 
   //UPDATE THIS ==========================================================================
