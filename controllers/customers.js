@@ -30,8 +30,8 @@ async function index(req, res){
 
         });
     } catch(err){
-        console.log(err)
-        res.redirect('/')
+        console.log('Error in cuwstomer index', err);
+        res.status(500).render('error', {error: err});
     }
 }
 

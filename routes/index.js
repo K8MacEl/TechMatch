@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const passport = require('passport');
 
+//all of these routes are prepended with /customers becasue of this line of code in the server.js
+//app.use('/customers, customerRouter)
+
 // The root route renders our only view
 router.get('/', function(req, res, next) {
   res.redirect('/') //FOR NOW CUSTOMERS, ONCE WE GET THIS WOKRING WE CAN PLAY AROUND WITH A HOMEPAGE IDEA

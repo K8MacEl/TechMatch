@@ -10,6 +10,7 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 const customerRouter = require('./routes/customers');
+const homepageRoutes = require('./routes/homepage')
 // const projectRouter = require('./routes/projects');
 
 
@@ -48,12 +49,14 @@ app.use(passport.session());
 app.use(function (req, res, next) {
   res.locals.user = req.user; // assinging a property to res.locals, makes that said property (user) availiable in every
   // single ejs view
+  console.log('Request URL:', req.originalUrl)
   next();
 });
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/customers', customerRouter);
+app.use('/',homepageRoutes)
 // app.use('/projects, projectRouter');
 
 

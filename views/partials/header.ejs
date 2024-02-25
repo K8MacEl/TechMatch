@@ -6,19 +6,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel='stylesheet' href='/stylesheets/style.css' />
+	
 </head>
 
 <body>
-	<nav>
-		<h1> TECHMATCH </h1>
-		<a href="/customers">ALL CUSTOMERS</a>
+	<nav class="navbar">
+		<div class="menu">
+			<a href="/customers">ALL CUSTOMERS</a>
+			<a href="/projects/new"	> ADD PROJECT</a>
+			<a href="/customers/new" >ADD CUSTOMER</a>
+			<a href="/logout">LOG OUT</a>
+		</div>
+		<a href="/auth/google" id="login">Login with your Google Account to Get Started&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
 		<% if (user) { %>
-		  <a href="/projects/new"	>
-			  ADD PROJECT</a>
-		  <a href="/customers/new" >ADD CUSTOMER</a>
-		  <a href="/logout">LOG OUT</a>
-		<% } else { %>
-		  <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-		<% } %>
-	  </nav>
+				
+				<% } else { %>
+					<% } %>
+	</nav>
+		<section>
+			<div class="brand">Tech Match
+			</div>
+			<div class="slogan">Tech Match gives you the tech-smarts for your programming needs
+			</div>
+		</section>	
 	<main>
