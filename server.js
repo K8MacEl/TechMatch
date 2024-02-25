@@ -9,6 +9,8 @@ const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
+const customerRouter = require('./routes/customers');
+// const projectRouter = require('./routes/projects');
 
 
 // create the Express app
@@ -33,7 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // mount the session middleware
 app.use(session({
-  secret: process.env.SECRET,
+  secret: 'please please work',
   resave: false,
   saveUninitialized: true
 }));
@@ -51,11 +53,13 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+app.use('/customers', customerRouter);
+// app.use('/projects, projectRouter');
 
 
 // invalid request, send 404 page
 app.use(function(req, res) {
-  res.status(404).send('Cant find that!');
+  res.status(404).send('Cant find that! 404 Error');
 });
 
 module.exports = app;
