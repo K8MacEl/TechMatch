@@ -25,7 +25,10 @@ async function index(req, res){
     try {
         const customerDocumentsFromTheDB = await CustomerModel.find({})
         console.log(customerDocumentsFromTheDB)
-        res.render('customers/index', {customerDocs: customerDocumentsFromTheDB})
+        res.render('customers/index', {customerDocs: customerDocumentsFromTheDB,
+        title: 'Customers List'
+
+        });
     } catch(err){
         console.log(err)
         res.redirect('/')
