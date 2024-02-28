@@ -158,8 +158,8 @@ body {
   font-weight: lighter;
 }
 
-#background,
-#show_background {
+#description,
+#show_description {
   width: 40rem;
   height: 10rem;
   text-wrap: auto;

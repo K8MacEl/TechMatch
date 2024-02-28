@@ -27,7 +27,12 @@ async function show(req, res) {
     try {
         const customerFromTheDB = await CustomerModel.findById(req.params.customerId)
         console.log(customerFromTheDB);
-        res.render('customers/show', { customer: customerFromTheDB }); //the key customer becomes a varibale name in show.ejs
+        if (!customerFromTheDB){
+            return res.status(404).render('Customer profile not found."');
+        }
+         res.render('customers/show', { customer: customerFromTheDB });
+         //the key customer becomes a varibale name in show.ejs
+         //res.redirect(`/customers/${customerDoc._id}`)
     } catch (err) {
         console.log(err)
         res.send(err);
@@ -60,18 +65,13 @@ async function create(req, res) {
         
         req.body.userId = req.user._id
         
-        const customerDoc = await CustomerModel.create(req.body);
-        
-        // req.body.userName = req.user.name
-        // req.body.userAvatar = req.user.avatar
+        const customerDocumentsFromTheDB = await CustomerModel.create(req.body);
+        console.log(customerDocumentsFromTheDB)
+        res.redirect(`/customers/${customerDocumentsFromTheDB._id}`)
 
-        // customerDoc.customers.pus(req.body);
-        // await customerDoc.save()
-
-        res.redirect(`/customers/${customerDoc._id}`)
     } catch (err) {
         console.log(err);
-        res.send(err);
+        res.render("customers/new", {errorMsg: err.message});
     }
 }
 

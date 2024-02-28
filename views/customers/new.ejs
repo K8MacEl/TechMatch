@@ -1,5 +1,4 @@
 <%- include('../partials/header') %>
-    <% if (user) { %>
 
         <body class="newUser">
             <form action="/customers" method="POST">
@@ -13,9 +12,9 @@
                     <td id="email"><%= user.email %></td>
                 </label>
                 <br><br>
-                <td id="background_title"><strong>Background:</strong></td>
+                <td id="description_title"><strong>Description:</strong></td>
                 <br><br>
-                <input id="background" type="text" name="description">
+                <input id="description" type="text" name="description">
                 </label>
                 <br><br>
                 <label><strong>Website Link: </strong>
@@ -30,28 +29,8 @@
                         <option value="Pacific Coast">Pacific Coast</option>
                         <option value="Other">Other</option>
                     </select>
-                    <label><Strong>Average Project Budget: $</Strong>
-                        <input id="budget" type="number" name="budget">
-                    </label>
                 <br><br>
                 <button id="create_profile" type="submit">Create Profile</button>
             </form>
         </body>
-        <% } else { %>
-            <main class="login_prompt">
-                <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
-            </main>
-            <% } %>
                 <%- include('../partials/footer') %>
-
-                    <!-- <label class="languages">Coding/Programming Languages and Skills:
-                <input type="radio" id="python">Python</input>
-                <input type="radio" id="php">PHP</input>
-                <input type="radio" id="salesforce">Salesforce</input>
-                <input type="radio" id="ruby">Ruby</input>
-                <input type="radio" id="javascript">JavaScript</input>
-                <input type="radio" id="mongodb">MongoDB</input>
-                <input type="radio" id="django">Django</input>
-                </select>
-                <br><br>
-            </label> -->
