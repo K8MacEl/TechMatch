@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
   <body>
-    <title>TECHMATCH IS WORKING THIS IS INDEX</title>
-            
-      <a href="/customers">All CUSTOMERS</a>
-      <a href="/customers/new">NEW CUSTOMER</a>
+    <nav class="navbar">
+      <div class="menu">
+        <% if (user) { %>
+          <a href="/customers">MY PROFILES </a>
+          <a href="/projects/new"> CREATE A PROJECT </a>
+          <a href="/customers/new">CREATE A NEW PROFILE </a>
+          <a href="/projects/">ALL TECH MATCH PROJECTS</a>
+      </div>
+      <a href="/logout" id="logout">LOG OUT</a>
+      <% } else { %>
+        <a href="/auth/google" id="login">Login with your Google Account to Get Started&nbsp;<img
+            src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+    </nav>
+    <section>
+      <div class="brand">Tech Match</div>
+      </div>
+      <div class="slogan">Tech Match gives you the tech-smarts for your programming needs
+      </div>
+    </section>
+    <section class="homepage_info">
+      <div id="homepage_image" href="https://imgur.com/l4ogacC"><img src="https://i.imgur.com/l4ogacCl.png"
+          title="source: imgur.com">
+      </div>
+      <div id="homepage_how">
+        <h1><strong>How Tech Match Works:</strong></h1>
+        <br><br>
+        <h3>This platform allows programming professions to connect with companies and individuals looking for help on
+          particular projects.
+          <br><br>People seeking help with writing code and programming can connect skilled programmers seeking contract
+          work AND programmers can also find help from fellow programmers on projects as well.
+          <br><br><em>Tech Match is about building a community and fostering collaboration in coding.</em>
+          </h>
+      </div>
+    </section>
   </body>
+
 </html>

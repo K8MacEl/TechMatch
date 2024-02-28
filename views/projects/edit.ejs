@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+<% if (user) { %>
+<body class="edit_project_page">
+    <section class="edit_project_section">
+        <form action="/projects/<%= project._id %>?_method=PUT" method="POST" class="update_project">  
+            <div id="edit_header">
+                <h2>Edit Project Details:</h2>
+            </div>
+            <div>   
+                <strong>Project Name:</strong>
+                <input id="edit_project_name" value="<%= project.projectName %>"type="text" name="projectName">
+            </div>
+            <br><br>
+            <label class="languageNeeds">
+                <strong>Current Project Langauge/Skill Needed: </strong> <%= project.languagesNeeded %>    
+                <label><strong>Edit Coding/Programming Language and Skill Needed:</strong></label>
+               <input type="radio" id="python" name="languagesNeeded" value="Python">Python</input>
+               <input type="radio" id="php" name="languagesNeeded" value="PHP">PHP</input>
+               <input type="radio" id="salesforce" name="languagesNeeded" value="Salesforce">Salesforce</input>
+               <input type="radio" id="ruby" name="languagesNeeded" value="ruby">Ruby</input>
+               <input type="radio" id="javascript"name="languagesNeeded" value="JavaScript">JavaScript</input>
+               <input type="radio" id="mongodb" name="languagesNeeded" value="Mongodb">MongoDB</input>
+               <input type="radio" id="django" name="languagesNeeded" value="Django">Django</input>
+           </label>    
+            <br><br>
+        <label>Budget: $
+            <input id="budget" value="<%= project.budget %>" type="number" name="budget">
+            
+        </label>
+        <br><br>
+        <label>Start Date:
+            <input id="startDate" value="<%= project.startDate %>" type="date" name="startDate">
+        </label>
+        <br><br>
+        <label>End Date:
+            <input id="endDate" value="<%= project.endDate %>" type="date" name="endDate">
+        </label>
+        <br><br>
+        <label>Project Details:
+            <input id="details" value="<%= project.projectDetails %>" type="text" name="projectDetails">
+        </label>
+        <br><br>
+        <button id="update_project" value="" type="submit">Update Project</button>
+        </form>
+    </section>
+</body>
+<% } else { %>
+    <main class="login_prompt">
+      <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+    </main>
+    <% } %>
+  <%- include('../partials/footer') %>, 

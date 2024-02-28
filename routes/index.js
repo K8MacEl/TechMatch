@@ -6,7 +6,7 @@ const passport = require('passport');
 
 // The root route renders our only view
 router.get('/', function(req, res, next) {
-  res.redirect('/') //FOR NOW CUSTOMERS, ONCE WE GET THIS WOKRING WE CAN PLAY AROUND WITH A HOMEPAGE IDEA
+  res.render('index', {title: "homepage"}) //FOR NOW CUSTOMERS, ONCE WE GET THIS WOKRING WE CAN PLAY AROUND WITH A HOMEPAGE IDEA
 });
 
   //UPDATE THIS ==========================================================================
@@ -27,7 +27,7 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect : '/customers', // UPDATE THIS, where do you want the client to go after you login 
-    failureRedirect : '/customers' //  UPDATE THIS, where do you want the client to go if login fails
+    failureRedirect : '/' //  UPDATE THIS, where do you want the client to go if login fails
   }
 ));
 

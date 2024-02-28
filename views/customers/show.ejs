@@ -1,12 +1,47 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>TECHMATCH IS WORKING THIS IS CUSTOMERS-SHOW</h1>
-      <a href="/customers">All CUSTOMERS</a>
-      <a href="/customers/new">NEW CUSTOMER</a>
-  </body>
-</html>
+<%- include('../partials/header') %>
+  <% if (user) { %>
+
+    <body>
+      <div id="show_header"><strong>Customer Profile </strong></div>
+      <tbody>
+        <div id="show_avatar"><img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer">
+        </div>
+        <br><br>
+        <div class="customer_profile">
+          <td id="show_name"><strong>Name:</strong>
+            <%= user.name %>
+          </td>
+          <br><br>
+          <td id="show_background"><strong> Background: </strong>
+            <%= customer.description %>
+          </td>
+          <br><br>
+          <td id="show_link"><strong>Link:</strong>
+            <%= customer.link %>
+          </td>
+          <br><br>
+          <td id="show_timezone"><strong> TimeZone:</strong>
+            <%= customer.timeZone %>
+          </td>
+          <br><br>
+          <td id="show_budget"><strong> Budget: </strong>
+            <%= customer.budget %>
+          </td>
+          <br><br>
+          <td id="show_email"><strong> Email:</strong>
+            <%= user.email %>
+          </td>
+          </tr>
+        </div>
+        <form action="/customers/<%= customer._id %>?_method=DELETE" method="POST" class="delete_profile">
+          <button id="delete_profile" type="submit">DELETE CUSTOMER PROFILE
+          </button>
+        </form>
+      </tbody>
+    </body>
+    <% } else { %>
+      <main class="login_prompt">
+        <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+      </main>
+      <% } %>
+        <%- include('../partials/footer') %>

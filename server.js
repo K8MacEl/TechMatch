@@ -8,9 +8,10 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
+const indexRouter = require('./routes/index');
 const customerRouter = require('./routes/customers');
-const homepageRoutes = require('./routes/homepage')
+const homepageRouter = require('./routes/homepage');
+const projectRouter = require('./routes/projects');
 // const projectRouter = require('./routes/projects');
 
 
@@ -36,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // mount the session middleware
 app.use(session({
-  secret: 'please please work',
+  secret: 'pleaseWork',
   resave: false,
   saveUninitialized: true
 }));
@@ -54,9 +55,10 @@ app.use(function (req, res, next) {
 });
 
 // mount all routes with appropriate base paths
-app.use('/', indexRoutes);
+app.use('/', indexRouter);
 app.use('/customers', customerRouter);
-app.use('/',homepageRoutes)
+app.use('/',homepageRouter)
+app.use('/projects', projectRouter);
 // app.use('/projects, projectRouter');
 
 

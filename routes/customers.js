@@ -10,8 +10,11 @@ router.get('/', customerCtrl.index)
 router.get('/new', customerCtrl.new)
 
 //GET /customers/:id (show functionality) MUST be below the new route
-router.get('/:id', customerCtrl.show)
+router.get('/:customerId', customerCtrl.show)
 //POST request to /customers
 router.post('/', customerCtrl.create)
+
+//DELETE 
+router.delete('/:customerId', customerCtrl.delete)
 
 module.exports = router;

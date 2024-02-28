@@ -9,9 +9,15 @@ const Schema = mongoose.Schema;
 const CustomerSchema = new Schema ({
 
     name: String,
+    email: String,
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
     description: String,
-    timeZone: String, //make selection options in ejs
-    budget: Number,
+    link: String,
+    timeZone: String, 
+    hourlyRate: Number,
+    // projects: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Project'}]//project is referencing the model name
 });
 
 

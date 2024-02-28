@@ -1,0 +1,16 @@
+<%- include('../partials/header') %> 
+<h1 id="project_header">All Projects</h1>
+<table class="users">
+    <tbody>
+      <% projectDocs.forEach(function(project) { %>
+        <tr>
+            <td id="projectName"><%=project.projectName %></td>
+           
+            <td id="budget">$ <%= project.budget %></td>
+
+            <td id="project_link"><a href="/projects/<%=project._id %>">View Project</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+<%- include('../partials/footer') %>,

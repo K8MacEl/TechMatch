@@ -1,12 +1,24 @@
 <%- include('../partials/header') %>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>TECHMATCH IS WORKING THIS IS CUSTOMERS-INDEX</h1>
-            
+<% if (user) { %>
+<h1 id="user_header">All of My Profiles</h1>
+<table class="users">
+    <tbody>
 
-  </body>
-</html>
+      <% customerDocs.forEach(function(project) { %>
+        <tr>
+          <td id="avatar"><img alt="avatar" src="<%= user.avatar %>"
+            referrerpolicy="no-referrer">
+            <td id="userName"><%=user.name %></td>
+            <td id="profile_link"><a href="/customers/<%= user._id %>">View Profile</a></td>
+          
+            <td id="project_link"><a href="/projects/<%=project._id %>">View Projects</a></td>
+       <% }); %>
+          </tr>
+      </tbody>
+    </table>
+    <% } else { %>
+      <main class="login_prompt">
+        <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+      </main>  
+      <% } %>
 <%- include('../partials/footer') %>

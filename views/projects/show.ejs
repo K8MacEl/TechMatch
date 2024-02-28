@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+  <% if (user) { %>
+
+    <body class="show_project">
+      <div id="project_show_header"><strong>Project Information</strong>
+      </div>
+      <br><br>
+      <div class="project_profile"></div>
+      <td id="show_project_name"><strong>Project Name</strong>
+        <%= project.projectName %>
+      </td>
+      <td id="show_langauge_needs"><strong>Coding/Programming Languages and Skills Needed:</strong>
+        <%= project.languagesNeeded %>
+      </td>
+      <td id="show_budget"><strong>Budget: $</strong>
+        <%= project.budget %>
+      </td>
+      <td id="show_start_date"><strong>Desired Start Date"</strong>
+        <%= project.startDate %>
+      </td>
+      <td id="show_end_date"><strong>Project Deadline:</strong>
+        <%= project.endDate %>
+      </td>
+      <td id="Project Details"><strong>Project Details</strong>
+        <%= project.projectDetails %>
+      </td>
+       <a href="/projects/<%= project._id %>/edit/">EDIT</a>
+    </body>
+    <% } else { %>
+      <main class="login_prompt">
+        <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+      </main>
+      <% } %>
+
+
+
+
+        <%- include('../partials/footer') %>,

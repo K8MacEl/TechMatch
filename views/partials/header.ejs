@@ -12,19 +12,19 @@
 <body>
 	<nav class="navbar">
 		<div class="menu">
-			<a href="/customers">ALL CUSTOMERS</a>
-			<a href="/projects/new"	> ADD PROJECT</a>
-			<a href="/customers/new" >ADD CUSTOMER</a>
-			<a href="/logout">LOG OUT</a>
+			<% if (user) { %>
+			<a href="/customers">MY PROFILES</a>
+			<a href="/projects/new"	> CREATE A PROJECT</a>
+			<a href="/customers/new" >CREATE A NEW PROFILE</a>
+			<a href="/projects" >ALL TECH MATCH PROJECTS</a>
 		</div>
-		<a href="/auth/google" id="login">Login with your Google Account to Get Started&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-		<% if (user) { %>
-				
-				<% } else { %>
-					<% } %>
+		<a href="/logout" id="logout">LOG OUT</a>
+		<% } else { %>
+		<a href="/auth/google" id="login">Login with your Google Account to Get Started&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>	
+		<% } %>
 	</nav>
 		<section>
-			<div class="brand">Tech Match
+			<h1 class="brand">Tech Match</h1>
 			</div>
 			<div class="slogan">Tech Match gives you the tech-smarts for your programming needs
 			</div>

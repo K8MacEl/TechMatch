@@ -1,51 +1,81 @@
 const CustomerModel = require('../models/customer')
-// const ProjectModel = require('../models/project')
+const ProjectModel = require('../models/project')
 
 module.exports = {
     new: newCustomer,
     create,
     index,
     show,
-    //delete
+    delete: deleteOne
 }
 
-async function show(req, res){
+async function deleteOne(req, res){
     try {
-        const customerFromTheDB = await CustomerModel.findById(req.params.id)
-        console.log(CustomerModel);
-        res.render('customers/show', {customer: customerFromTheDB}); //the key customer becomes a varibale name in show.ejs
-        } catch (err) {
-            console.log(err)
-            res.send(err);
-        }
+        await CustomerModel.deleteOne({_id: req.params.customerId});
+    
+       
+       //delete the cutsomer from the CustomerModel
+       //redirect after deletion
+        res.redirect('/customers');//change the redirect path as desired/needed
+    } catch (err) {
+        console.log(err)
+        res.send(err)
+    }
 }
 
-async function index(req, res){
+async function show(req, res) {
+    try {
+        const customerFromTheDB = await CustomerModel.findById(req.params.customerId)
+        console.log(customerFromTheDB);
+        res.render('customers/show', { customer: customerFromTheDB }); //the key customer becomes a varibale name in show.ejs
+    } catch (err) {
+        console.log(err)
+        res.send(err);
+    }
+}
+
+async function index(req, res) {
     //then we want to send an eja page with all the customers to browers
     try {
         const customerDocumentsFromTheDB = await CustomerModel.find({})
         console.log(customerDocumentsFromTheDB)
-        res.render('customers/index', {customerDocs: customerDocumentsFromTheDB,
-        title: 'Customers List'
+        res.render('customers/index', {
+            customerDocs: customerDocumentsFromTheDB,
+            title: 'Customers List'
 
         });
-    } catch(err){
-        console.log('Error in cuwstomer index', err);
-        res.status(500).render('error', {error: err});
+    } catch (err) {
+        console.log('Error in customer index', err);
+        res.status(500).render('error', { error: err });
     }
 }
 
-async function create(req, res){
+async function create(req, res) {
+    //To find the user
+    console.log('====================================')
+    console.log(req.body, '<-------req.body')
+    console.log('====================================')
     try {
-        const customerFromTheDB = await CustomerModel.create(req.body);
-        console.log(customerFromTheDataBase)
-        res.redirect(`/customers/${customerFromTheDB._id}`);
-    } catch(err){
+        
+        
+        req.body.userId = req.user._id
+        
+        const customerDoc = await CustomerModel.create(req.body);
+        
+        // req.body.userName = req.user.name
+        // req.body.userAvatar = req.user.avatar
+
+        // customerDoc.customers.pus(req.body);
+        // await customerDoc.save()
+
+        res.redirect(`/customers/${customerDoc._id}`)
+    } catch (err) {
         console.log(err);
-        res.render('customers/new', {errorMsg: err.message});
+        res.send(err);
     }
 }
 
-function newCustomer(req,res){
-    res.render('customers/new')
+function newCustomer(req, res) {
+    console.log('new user added')
+    res.render('customers/new', { title: "Add User" });
 }

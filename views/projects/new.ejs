@@ -1,0 +1,39 @@
+<%- include('../partials/header') %> 
+<body class="newProject">
+    <form action="/projects" method="POST">
+        <div id="create_project">
+            <h2>Create a New Project</h2>
+        </div>
+        <label>Project Name:
+            <input id="project_name" type="text" name="projectName">
+        </label>
+            <br><br>
+             <label class="languageNeeds">Coding/Programming Language and Skill Needed(select one):
+                <input type="radio" id="python" name="languagesNeeded" value="python">Python</input>
+                <input type="radio" id="php" name="languagesNeeded" value="PHP">PHP</input>
+                <input type="radio" id="salesforce" name="languagesNeeded" value="salesforce">Salesforce</input>
+                <input type="radio" id="ruby" name="languagesNeeded" value="ruby">Ruby</input>
+                <input type="radio" id="javascript"name="languagesNeeded" value="javascript">JavaScript</input>
+                <input type="radio" id="mongodb" name="languagesNeeded" value="mongodb">MongoDB</input>
+                <input type="radio" id="django" name="languagesNeeded" value="django">Django</input>
+                <br><br>
+        <label>Budget: $
+            <input id="budget" type="number" name="budget">
+        </label>
+        <br><br>
+        <label>Desired Start Date:
+            <input id="startDate" type="date" name="startDate">
+        </label>
+        <br><br>
+        <label>Desired End Date:
+            <input id="endDate" type="date" name="endDate">
+        </label>
+        <br><br>
+        <label>Project Details:
+            <input id="details" type="text" name="projectDetails">
+        </label>
+        <br><br>
+        <button id="create_project" type="submit">Create Project</button>
+    </form>
+</body>
+<%- include('../partials/footer') %>,
