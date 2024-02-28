@@ -12,6 +12,7 @@ budget: Number,
 startDate: Date,
 endDate: Date,
 projectDetails: String, 
+
 })
 
 module.exports = mongoose.model('Project', ProjectSchema)

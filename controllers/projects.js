@@ -8,7 +8,7 @@ module.exports = {
     new: newProject,
     show,
     // update,
-    // edit,
+    //edit,
     //delete: deleteOne ----will work on this function next
 }
 

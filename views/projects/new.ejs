@@ -1,4 +1,5 @@
 <%- include('../partials/header') %> 
+<% if (user) { %>
 <body class="newProject">
     <form action="/projects" method="POST">
         <div id="create_project">
@@ -32,8 +33,17 @@
         <label>Project Details:
             <input id="details" type="text" name="projectDetails">
         </label>
+        <label id="customer_name"> Customer Name: 
+            <%= user.name %> 
+        </label>
+        
         <br><br>
         <button id="create_project" type="submit">Create Project</button>
     </form>
 </body>
+<% } else { %>
+    <main class="login_prompt">
+      <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+    </main>
+    <% } %>
 <%- include('../partials/footer') %>,

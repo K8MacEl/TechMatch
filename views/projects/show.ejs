@@ -24,7 +24,14 @@
       <td id="Project Details"><strong>Project Details</strong>
         <%= project.projectDetails %>
       </td>
-       <a href="/projects/<%= project._id %>/edit/">EDIT</a>
+      <td id="customerOfProject"><strong>Project Owner:</strong>
+        <%= user.name %>
+
+      </td>
+       
+        <form action="/projects/<%= project._id %>/edit/">
+          <button type="edit">EDIT PROJECT</button>
+      
     </body>
     <% } else { %>
       <main class="login_prompt">
