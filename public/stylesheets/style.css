@@ -160,18 +160,6 @@ body {
   width: 28rem;
 }
 
-#user_header,
-#project_header {
-  font-family: "DM Sans", sans-serif;
-  border: .25rem solid rgb(194 230 132);
-  width: 25rem;
-  text-align: center;
-  margin: auto;
-  margin-top: 5rem;
-  margin-bottom: 3rem;
-}
-
-
 .users {
   width: 70rem;
   height: 30rem;
@@ -225,16 +213,6 @@ body {
   margin: 3rem;
 }
 
-.all_users, #project_show_header, #edit_header {
-  font-family: "DM Sans", sans-serif;
-  font-size: xx-large;
-  text-align: center;
-  background-color: rgb(194 230 132);
-  border: .05rem solid black;
-  height: 4rem;
-}
-
-
 #avatar, #userName, #userEmail {
   font-family: "DM Sans", sans-serif;
   font-size: xx-large;
@@ -267,15 +245,8 @@ body {
   font-size: x-large;
 }
 
-#edit_header ,.create_project{
-  font-family: "DM Sans", sans-serif;
-  font-size: large;
-  background-color: rgb(194 230 132);
-  border: .05rem solid black;
-  height: 5rem;
-  margin-top: 2rem;
-}
-.create_project, #show_header {
+
+#user_header, .create_project, #show_header, #project_header, .all_users, #project_show_header, #edit_header {
   font-family: "DM Sans", sans-serif;
   font-size: xx-large;
   text-align: center;
@@ -285,7 +256,7 @@ body {
   margin-top: 2rem;
 }
 
-.edit_project_section, .new_project, .customer_profile {
+.edit_project_section, .new_project {
   display: grid;
   grid-template-columns: 6fr;
   font-size: larger;
@@ -294,5 +265,16 @@ body {
   margin: auto;
   margin-top: 1rem;
   width: 50%; /* Set a specific width */
+}
+
+.customer_profile{
+  display: grid;
+  grid-template-columns: 6fr;
+  font-size: larger;
+  align-items: center;
+  font-family: "DM Sans", sans-serif;
+  margin: auto;
+  margin-top: 1rem;
+  width: 70%; /* Set a specific width */
 }
 
