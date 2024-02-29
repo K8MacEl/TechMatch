@@ -4,7 +4,6 @@
     <body>
       <div id="show_header"><strong> Profile </strong></div>
       <tbody>
-        <br><br>
         <div class="customer_profile">
           <td id="show_name"><strong>Name:</strong>
             <%= customer.name %>
@@ -13,6 +12,7 @@
           <td id="show_description"><strong> Description: </strong>
             <%= customer.description %>
           </td>
+          <br><br>
           <tr id="show_role"><strong>Role: </strong></tr>
           <%= customer.customerType %>
             <br><br>
@@ -28,13 +28,12 @@
               <%= customer.email %>
             </td>
             </tr>
+            <br><br>
         </div>
         <form action="/customers/<%= customer._id %>?_method=DELETE" method="POST" class="delete_profile">
           <button id="delete_profile" type="submit">DELETE CUSTOMER PROFILE
           </button>
         </form>
-        <form action="/customers/<%= customer._id %>/edit/">
-          <button type="edit">EDIT PROFILE</button>
               </tr>
             </section>
           </form>  

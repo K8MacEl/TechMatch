@@ -275,7 +275,7 @@ body {
   height: 5rem;
   margin-top: 2rem;
 }
-.create_project {
+.create_project, #show_header {
   font-family: "DM Sans", sans-serif;
   font-size: xx-large;
   text-align: center;
@@ -285,7 +285,7 @@ body {
   margin-top: 2rem;
 }
 
-.edit_project_section, .new_project {
+.edit_project_section, .new_project, .customer_profile {
   display: grid;
   grid-template-columns: 6fr;
   font-size: larger;
@@ -295,3 +295,4 @@ body {
   margin-top: 1rem;
   width: 50%; /* Set a specific width */
 }
+
