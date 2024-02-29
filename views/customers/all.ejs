@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<% if (user) { %>
+    <h2 class="all_users">All PROFILES</h2>
+    <section class="customer_profile">
+        <td id="show_name"><strong>Name:</strong>
+            <%= user.name %>
+        </td>
+            <% allProfiles.forEach(function(customer) {%>
+                <td id="profile_link"><a href="/customers/<%=customer._id %>">View Profile</td>
+
+
+
+           <% }); %>
+
+
+
+      </div> 
+    </section>
+      <br><br>
+    <% } else { %>
+        <main class="login_prompt">
+          <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+        </main>  
+        <% } %>
+
+            <%- include('../partials/footer') %>

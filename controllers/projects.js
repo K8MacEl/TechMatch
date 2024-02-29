@@ -60,7 +60,7 @@ async function create(req, res) {
 
 async function index(req, res) {
     try {
-        //we want to send an ejs projects/index page to brower
+        //we want to send an ejs projects/index page to browser
         const projectDocumentsFromTheDB = await ProjectModel.find({})
         console.log(projectDocumentsFromTheDB, 'Project Index router handler called')
         res.render('projects/index', {

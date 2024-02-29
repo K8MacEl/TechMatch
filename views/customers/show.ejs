@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
   <% if (user) { %>
     <body>
-      <div id="show_header"><strong>Customer Profile </strong></div>
+      <div id="show_header"><strong> Profile </strong></div>
       <tbody>
         <div id="show_avatar"><img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer">
         </div>
@@ -14,6 +14,8 @@
           <td id="show_description"><strong> Description: </strong>
             <%= customer.description %>
           </td>
+          <tr id="show_role"><strong>Role: </strong></tr>
+            <%= customer.customerType %>
           <br><br>
           <td id="show_link"><strong>Link:</strong>
             <%= customer.link %>

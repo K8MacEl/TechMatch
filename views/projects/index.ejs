@@ -8,12 +8,17 @@
             <td id="projectName"><%=project.projectName %></td>
            
             <td id="budget">$ <%= project.budget %></td>
+    
+            <td id="project_link"><a href="/projects/<%=project._id %>">View Project</td>
 
-            
-            <td id="project_link"><a href="/projects/<%=project._id %>">View Project</a></td>
-
+            <% }); %>
           </tr>
-          <% }); %>
+
+          <td id="userName"><%=user.name %></td>
+         
+
+        </tr>
+      
      
       </tbody>
     </table>
