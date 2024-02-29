@@ -2,11 +2,12 @@
   <% if (user) { %>
 
     <body class="show_project">
-      <div id="project_show_header"><strong>Project Information</strong>
-      </div>
+      <header id="project_show_header"><strong>Project Information</strong>
+      </header>
       <br><br>
-      <div class="project_profile"></div>
-      <td id="show_project_name"><strong>Project Name</strong>
+      <section class="project_profile">
+        <td id="show_project_name"><strong>Project Name</strong>
+      </div>
         <%= project.projectName %>
       </td>
       <td id="show_langauge_needs"><strong>Coding/Programming Languages and Skills Needed:</strong>
@@ -24,18 +25,13 @@
       <td id="Project Details"><strong>Project Details</strong>
         <%= project.projectDetails %>
       </td>
-
-      <td id="customerOfProject"><strong>Project Owner:</strong>
-
-            <%= customers.name %>
-         
-        </select>
-      </form>  
+      </select>
+      </form>
       </td>
-
-        <form action="/projects/<%= project._id %>/edit/">
-          <button type="edit">EDIT PROJECT</button>
-      
+      <br><br>
+      <form action="/projects/<%= project._id %>/edit/">
+        <button id="edit" type="edit">EDIT PROJECT</button>
+      </section>
     </body>
     <% } else { %>
       <main class="login_prompt">

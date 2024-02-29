@@ -1,15 +1,16 @@
 <%- include('../partials/header') %> 
 <% if (user) { %>
-<body class="newProject">
+<body>
     <form action="/projects" method="POST">
-        <div id="create_project">
-            <h2>Create a New Project</h2>
+        <div class="create_project">
+            Create a New Project
         </div>
-        <label>Project Name:
-            <input id="project_name" type="text" name="projectName">
-        </label>
+        <section class="new_project">
+            <label><strong>Project Name:</strong>
+                <input id="project_name" type="text" name="projectName">
+            </label>
             <br><br>
-             <label class="languageNeeded">Coding/Programming Language and Skill Needed(select one):
+            <label class="languageNeeded"><strong>Coding/Programming Language and Skill Needed(select one):</strong>
                 <input type="radio" id="python" name="languagesNeeded" value="python">Python</input>
                 <input type="radio" id="php" name="languagesNeeded" value="PHP">PHP</input>
                 <input type="radio" id="salesforce" name="languagesNeeded" value="salesforce">Salesforce</input>
@@ -18,23 +19,24 @@
                 <input type="radio" id="mongodb" name="languagesNeeded" value="mongodb">MongoDB</input>
                 <input type="radio" id="django" name="languagesNeeded" value="django">Django</input>
                 <br><br>
-        <label>Budget: $
+            <label><strong>Budget: $</strong>
             <input id="budget" type="number" name="budget">
-        </label>
-        <br><br>
-        <label>Desired Start Date:
+            </label>
+            <br><br>
+            <label><strong>Desired Start Date: </strong>
             <input id="startDate" type="date" name="startDate">
-        </label>
-        <br><br>
-        <label>Desired End Date:
+            </label>
+            <br><br>
+            <label><strong>Desired End Date</strong>
             <input id="endDate" type="date" name="endDate">
-        </label>
-        <br><br>
-        <label>Project Details:
+            </label>
+            <br><br>
+            <label><strong>Project Details:</strong>
             <input id="details" type="text" name="projectDetails">
-        </label>    
-        <br><br>
-        <button id="create_project" type="submit">Create Project</button>
+            </label>    
+            <br><br>
+            <button id="create_project_button" type="submit">Create Project</button>
+        </section>    
     </form>
 </body>
 <% } else { %>

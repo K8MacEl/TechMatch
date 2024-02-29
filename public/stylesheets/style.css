@@ -149,16 +149,6 @@ body {
   font-size: x-large;
 }
 
-
-#link,
-#timezone,
-#budget {
-  font-size: large;
-  border: .25rem solid rgb(29 92 232);
-  font-weight: lighter;
-}
-
-#description,
 #show_description {
   width: 40rem;
   height: 10rem;
@@ -235,7 +225,7 @@ body {
   margin: 3rem;
 }
 
-.all_users{
+.all_users, #project_show_header, #edit_header {
   font-family: "DM Sans", sans-serif;
   font-size: xx-large;
   text-align: center;
@@ -251,4 +241,57 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.all_projects {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "DM Sans", sans-serif;
+  font-size: xx-large;
+  margin: 3rem;
+}
+ 
+.project_profile {
+  display: grid;
+  grid-template-columns: 6fr;
+  font-size: larger;
+  align-items: center;
+  font-family: "DM Sans", sans-serif;
+  margin: auto;
+  width: 50%; /* Set a specific width */
+} 
+
+#edit, #update_project, #create_project_button {
+  background-color: rgb(255, 158, 52);
+  font-size: x-large;
+}
+
+#edit_header ,.create_project{
+  font-family: "DM Sans", sans-serif;
+  font-size: large;
+  background-color: rgb(194 230 132);
+  border: .05rem solid black;
+  height: 5rem;
+  margin-top: 2rem;
+}
+.create_project {
+  font-family: "DM Sans", sans-serif;
+  font-size: xx-large;
+  text-align: center;
+  background-color: rgb(194 230 132);
+  border: .05rem solid black;
+  height: 3rem;
+  margin-top: 2rem;
+}
+
+.edit_project_section, .new_project {
+  display: grid;
+  grid-template-columns: 6fr;
+  font-size: larger;
+  align-items: center;
+  font-family: "DM Sans", sans-serif;
+  margin: auto;
+  margin-top: 1rem;
+  width: 50%; /* Set a specific width */
 }
