@@ -12,9 +12,6 @@ const CustomerSchema = new Schema ({
     description: String,
     link: String,
     timeZone: String, 
-    // projects: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Project'}]//project is referencing the model name
 });
 
 

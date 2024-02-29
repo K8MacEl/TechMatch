@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<% if (user) { %>
         <body class="newUser">
             <form action="/customers" method="POST">
                 <div id="create_header">
@@ -33,4 +33,10 @@
                 <button id="create_profile" type="submit">Create Profile</button>
             </form>
         </body>
+        <% } else { %>
+            <main class="login_prompt">
+              <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+            </main>  
+            <% } %>
+
                 <%- include('../partials/footer') %>

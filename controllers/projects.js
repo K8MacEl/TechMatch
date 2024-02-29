@@ -7,8 +7,8 @@ module.exports = {
     index,
     new: newProject,
     show,
-    // update,
-    //edit,
+    update,
+    edit,
     //delete: deleteOne ----will work on this function next
 }
 
@@ -63,33 +63,33 @@ function newProject(req, res) {
 }
 
 
-// async function edit(req, res) {
-//     console.log('------project being edited--------')
+async function edit(req, res) {
+    console.log('------project being edited--------')
     
-//     const projectDoc = await ProjectModel.findOne({ _id: req.params.projectId, })
-//     res.render('projects/edit', { project: projectDoc });
-// }
+    const projectDoc = await ProjectModel.findOne({ _id: req.params.projectId, })
+    res.render('projects/edit', { project: projectDoc });
+}
 
-// async function update(req, res) {
-//     //when the edit project form is submitted, the update action will need to find the project 
-//     const projectUpdated = await ProjectModel.findOne({ 'projects._id': req.params.id });
-//     console.log(projectUpdated, "---PROJECT UPDATED")
-//     //find the project using the id method on Mongoose arrays
+async function update(req, res) {
+    //when the edit project form is submitted, the update action will need to find the project 
+    // const projectUpdated = await ProjectModel.findOne({ 'projects._id': req.params.id });
+    // console.log(projectUpdated, "---PROJECT UPDATED")
+    //find the project using the id method on Mongoose arrays
    
-//     //ensure that the project was created by the logged in user
-//     console.log("----->red.body", req.body);
-//     // if (!projectOwner.customerId.equals(req.user._id)) return res.redirect(`/projects/${project._id}`);
-//     //   // Update the text of the comment
-//     // //commentSubdoc.text = req.body.text;
+    //ensure that the project was created by the logged in user
+    console.log("----->red.body", req.body);
+    //  if (!customerId.equals(req.user._id)) return res.redirect(`/projects/${project._id}`);
+    //   // Update the text of the comment
+    // //commentSubdoc.text = req.body.text;
 
-//     //update the body of the project form
-//     projectUpdated = await ProjectModel.findOneAndUpdate({ '_id': req.params.projectId }, req.body.project);
+    //update the body of the project form
+    projectUpdated = await ProjectModel.findByIdAndUpdate(req.params.projectId, req.body);
 
-//     try {
-//         await project.save();
-//     } catch (err) {
-//         console.log(err.message);
-//     }
-//     //redirect back to the project show view
-//     red.redirect(`/projects/show, ${project._id}`)
-// }
+    // try {
+    //     await project.save();
+    // } catch (err) {
+    //     console.log(err.message);
+    // }
+    //redirect back to the project show view
+    res.redirect(`/projects/${req.params.projectId}`)
+ }
