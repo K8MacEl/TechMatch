@@ -1,34 +1,33 @@
 <%- include('../partials/header') %>
   <% if (user) { %>
+
     <body>
       <div id="show_header"><strong> Profile </strong></div>
       <tbody>
-        <div id="show_avatar"><img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer">
-        </div>
         <br><br>
         <div class="customer_profile">
           <td id="show_name"><strong>Name:</strong>
-            <%= user.name %>
+            <%= customer.name %>
           </td>
           <br><br>
           <td id="show_description"><strong> Description: </strong>
             <%= customer.description %>
           </td>
           <tr id="show_role"><strong>Role: </strong></tr>
-            <%= customer.customerType %>
-          <br><br>
-          <td id="show_link"><strong>Link:</strong>
-            <%= customer.link %>
-          </td>
-          <br><br>
-          <td id="show_timezone"><strong> TimeZone:</strong>
-            <%= customer.timeZone %>
-          </td>  
-          <br><br>
-          <td id="show_email"><strong> Email:</strong>
-            <%= user.email %>
-          </td>
-          </tr>
+          <%= customer.customerType %>
+            <br><br>
+            <td id="show_link"><strong>Link:</strong>
+              <%= customer.link %>
+            </td>
+            <br><br>
+            <td id="show_timezone"><strong> TimeZone:</strong>
+              <%= customer.timeZone %>
+            </td>
+            <br><br>
+            <td id="show_email"><strong> Email:</strong>
+              <%= customer.email %>
+            </td>
+            </tr>
         </div>
         <form action="/customers/<%= customer._id %>?_method=DELETE" method="POST" class="delete_profile">
           <button id="delete_profile" type="submit">DELETE CUSTOMER PROFILE
@@ -36,12 +35,9 @@
         </form>
         <form action="/customers/<%= customer._id %>/edit/">
           <button type="edit">EDIT PROFILE</button>
-      <section>
-               
-
-
-
-      </section>
+              </tr>
+            </section>
+          </form>  
       </tbody>
     </body>
     <% } else { %>

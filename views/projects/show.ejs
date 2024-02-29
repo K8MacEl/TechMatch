@@ -24,13 +24,15 @@
       <td id="Project Details"><strong>Project Details</strong>
         <%= project.projectDetails %>
       </td>
-      <td id="customerOfProject"><strong>Project Owner:</strong>
-        <%= user.name %>
-      <td id="emailOfCustomer"><strong>Project Contact: </strong>
-        <%= user.email %>
 
+      <td id="customerOfProject"><strong>Project Owner:</strong>
+
+            <%= customers.name %>
+         
+        </select>
+      </form>  
       </td>
-       
+
         <form action="/projects/<%= project._id %>/edit/">
           <button type="edit">EDIT PROJECT</button>
       

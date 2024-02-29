@@ -1,6 +1,5 @@
 const UserModel = require('../models/user')
 const ProjectModel = require('../models/project');
-const project = require('../models/project');
 const CustomerModel = require('../models/customer')
 
 module.exports = {
@@ -10,31 +9,42 @@ module.exports = {
     show,
     update,
     edit,
-    addToProfile
+    addToProfile,   
 }
 
 async function addToProfile(req, res){
 
     try {
-        //Find the user
-        const UserModel = await CustomerModel.findById(req.params.customerId);
+        //find the customer (req.params comes from the http request)
+        const customerDoc = await CustomerModel.findById(req.params.customerId);
         //add the project id to the customerDoc.project array
-        customerDoc.project.push(req.body.projectId);
-        // we mutated the customerDoc, so we have to tell the database
+        customerDoc.projects.push(req.body.projectId);
+        //we mutated the customerDoc, so we have to tell the database!
         await customerDoc.save()
-        res.redirect(`/customers/${req.params.customerId}`)
+        //redirect the client back to the customer show page
+        res.render(`customers/${req.params.customerId}`)
     } catch(err){
-		console.log(err)
-		res.send(err)
-	}
+        console.log(err)
+        res.send(err)
+    }
 }
 
 async function show(req, res) {
     try {
-        const projectFromTheDB = await ProjectModel.findById(req.params.projectId);
+        const projectFromTheDB = await ProjectModel.findById(req.params.projectId).populate("projectOwner").exec();
         console.log(projectFromTheDB, "projectsFromTheDB")
-        console.log(req.params.projectId, "req.params.projectId");
-        res.render('projects/show', { project: projectFromTheDB });
+
+        //we need to search the databse for all the customers that do not own the project
+        //so whose customerId is NOT in the projectFromTheDB.projectOwner array
+        const customersNotTheProjectOwner = await CustomerModel.find({_id: {$nin: projectFromTheDB.projectOwner}}).populate("userId").exec();
+        //$nin MongoDB comparision query opertaions 
+        console.log(customersNotTheProjectOwner, '<----customers NOT THE PROJECT OWNER')
+        //express is changing the ejs into html and sending it to the brower (client side/frontend)
+        res.render("projects/show", {
+            project: projectFromTheDB, //the key project becomes a variable in the project/show.ejs
+            customers: customersNotTheProjectOwner
+        });
+
     } catch (err) {
         console.log(err)
         res.send(err);
@@ -82,31 +92,23 @@ function newProject(req, res) {
 
 async function edit(req, res) {
     console.log('------project being edited--------')
-    
+    //want to check to see if the the project is owned by the user
+    console.log(req.user._id, "THIS IS req.user._id")
+    //if the project is not owned by the user then do not allow edit
+    //and redirect back to project/show page
+    //if the project is owned by the user then send to edit page
     const projectDoc = await ProjectModel.findOne({ _id: req.params.projectId, })
     res.render('projects/edit', { project: projectDoc });
 }
 
 async function update(req, res) {
-    //when the edit project form is submitted, the update action will need to find the project 
-    // const projectUpdated = await ProjectModel.findOne({ 'projects._id': req.params.id });
-    // console.log(projectUpdated, "---PROJECT UPDATED")
-    //find the project using the id method on Mongoose arrays
+
    
     //ensure that the project was created by the logged in user
     console.log("----->red.body", req.body);
-    //  if (!customerId.equals(req.user._id)) return res.redirect(`/projects/${project._id}`);
-    //   // Update the text of the comment
-    // //commentSubdoc.text = req.body.text;
+
 
     //update the body of the project form
     projectUpdated = await ProjectModel.findByIdAndUpdate(req.params.projectId, req.body);
-
-    // try {
-    //     await project.save();
-    // } catch (err) {
-    //     console.log(err.message);
-    // }
-    //redirect back to the project show view
     res.redirect(`/projects/${req.params.projectId}`)
  }

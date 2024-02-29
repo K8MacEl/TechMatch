@@ -179,8 +179,8 @@ body {
   margin: auto;
   margin-top: 5rem;
   margin-bottom: 3rem;
-
 }
+
 
 .users {
   width: 70rem;
@@ -198,15 +198,6 @@ body {
   row-gap: 30px;
   justify-content: space-around;
   flex-grow: 4;
-}
-
-#userName,
-#project_link,
-#profile_link {
-  background-color: white;
-  border: .25rem solid rgb(29 92 232);
-  width: 10rem;
-  text-align: center;
 }
 
 #show_header {
@@ -234,12 +225,30 @@ body {
   margin: auto;
 }
 
-.customer_profile {
-  display: grid;
+.customer_entry {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-family: "DM Sans", sans-serif;
   font-size: xx-large;
-  grid-template-columns: 1fr 6fr 1fr 6fr;
-  border: .25rem solid rgb(29 92 232);
+  border: .25rem solid rgb(255, 158, 52);
   margin: 3rem;
+}
 
+.all_users{
+  font-family: "DM Sans", sans-serif;
+  font-size: xx-large;
+  text-align: center;
+  background-color: rgb(194 230 132);
+  border: .05rem solid black;
+  height: 4rem;
+}
+
+
+#avatar, #userName, #userEmail {
+  font-family: "DM Sans", sans-serif;
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -12,9 +12,6 @@ router.get('/new', projectCtrl.new)
 //GET /projects/:id (show functionality) must be below the new route
 router.get('/:projectId',projectCtrl.show)
 
-
-router.post('/customers/:projectId/projects', projectCtrl.addToProfile);
-
 //POST request to /projects
 router.post('/', projectCtrl.create)
 
@@ -23,5 +20,8 @@ router.put('/:projectId', projectCtrl.update)
 
 //GET EDIT
 router.get('/:projectId/edit',projectCtrl.edit)
+
+//POST the projects for that customer in their show profile
+router.post('/customers/:customerId/projects', projectCtrl.addToProfile);
 
 module.exports = router; 

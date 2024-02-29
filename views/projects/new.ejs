@@ -9,7 +9,7 @@
             <input id="project_name" type="text" name="projectName">
         </label>
             <br><br>
-             <label class="languageNeeds">Coding/Programming Language and Skill Needed(select one):
+             <label class="languageNeeded">Coding/Programming Language and Skill Needed(select one):
                 <input type="radio" id="python" name="languagesNeeded" value="python">Python</input>
                 <input type="radio" id="php" name="languagesNeeded" value="PHP">PHP</input>
                 <input type="radio" id="salesforce" name="languagesNeeded" value="salesforce">Salesforce</input>
@@ -32,11 +32,7 @@
         <br><br>
         <label>Project Details:
             <input id="details" type="text" name="projectDetails">
-        </label>
-        <label id="customer_name"> Customer Name: 
-            <%= user.name %> 
-        </label>
-        
+        </label>    
         <br><br>
         <button id="create_project" type="submit">Create Project</button>
     </form>

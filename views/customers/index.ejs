@@ -1,22 +1,19 @@
 <%- include('../partials/header') %>
-<% if (user) { %>
-<h1 id="user_header">My Details</h1>
-<table class="user_profile">
-      <td id="avatar"><img alt="avatar" src="<%= user.avatar %>"
-        referrerpolicy="no-referrer">
-        <td id="userName"><%=user.name %></td>
-        <td id="show_email"><strong> Email:</strong>
-          <%= user.email %>
-        </td>
-        <% customerDocs.forEach(function(customer) { %>
-          <tr>
-            <td><a href="/customers/<%= customer._id %>">PROFILE DETAILS</a></td>
-          </tr>
-          <% }); %>
-    </table>
-    <% } else { %>
-      <main class="login_prompt">
-        <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
-      </main>  
-      <% } %>
-<%- include('../partials/footer') %>
+  <% if (user) { %>
+    <h1 id="user_header">My Details</h1>
+    <table class="user_profile">
+        <div id="avatar"><img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer">
+        </div>
+        <div id="userName">
+            <%=user.name %>
+        </div>
+        <div id="userEmail">
+        <%= user.email %>
+        </div>
+    </table>  
+      <% } else { %>
+        <main class="login_prompt">
+          <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+        </main>
+        <% } %>
+          <%- include('../partials/footer') %>
