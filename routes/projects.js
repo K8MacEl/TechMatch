@@ -12,6 +12,9 @@ router.get('/new', projectCtrl.new)
 //GET /projects/:id (show functionality) must be below the new route
 router.get('/:projectId',projectCtrl.show)
 
+
+router.post('/customers/:projectId/projects', projectCtrl.addToProfile);
+
 //POST request to /projects
 router.post('/', projectCtrl.create)
 

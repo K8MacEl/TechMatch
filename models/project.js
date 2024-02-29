@@ -6,13 +6,13 @@ const Schema = mongoose.Schema;
 
 const ProjectSchema = new Schema({
 
-projectName: String,
+projectName: {type: String, required: true, unique: true},
 languagesNeeded: String,
 budget: Number,
 startDate: Date,
 endDate: Date,
 projectDetails: String, 
-
+projectOwner: {type: Schema.Types.ObjectId, ref: "User"}
 })
 
 module.exports = mongoose.model('Project', ProjectSchema)

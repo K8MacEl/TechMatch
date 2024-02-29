@@ -17,10 +17,4 @@ router.post('/', customerCtrl.create)
 //DELETE 
 router.delete('/:customerId', customerCtrl.delete)
 
-//GET EDIT
-router.get('/:customerId/edit',customerCtrl.edit)
-
-//PUT update the project
-router.put('/:customerId', customerCtrl.update)
-
 module.exports = router;

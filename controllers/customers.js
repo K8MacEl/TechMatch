@@ -7,8 +7,6 @@ module.exports = {
     index,
     show,
     delete: deleteOne,
-    edit,
-    update,
 }
 
 async function deleteOne(req, res){
@@ -63,9 +61,24 @@ async function create(req, res) {
     }
 }
 
-function newCustomer(req, res) {
+async function newCustomer(req, res) {
     console.log('new user added')
+    //main goal is to check to see if a user has already created a customer
+    //if user has created a customer then we want to prevent them from accessing this view
+
+    //1. make sure we have a logged in user and can access user id 
+    console.log(req.user._id,"THIS IS req.user._id")
+    //2. we have user id now we can query or search db for a customer with userId
+    const existingCustomer = await CustomerModel.findOne({'userId': req.user._id});
+    //3.If we find a customer 
+    if (existingCustomer) {
+    //redirect user to the customer show page
+        res.redirect(`/customers/${existingCustomer._id}`);
+    }
+    //4. else render the view
+    else {
     res.render('customers/new', { title: "Add User" });
+    }
 }
 
 async function show(req, res) {

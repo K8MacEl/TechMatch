@@ -1,6 +1,7 @@
 const UserModel = require('../models/user')
 const ProjectModel = require('../models/project');
 const project = require('../models/project');
+const CustomerModel = require('../models/customer')
 
 module.exports = {
     create,
@@ -9,7 +10,23 @@ module.exports = {
     show,
     update,
     edit,
-    //delete: deleteOne ----will work on this function next
+    addToProfile
+}
+
+async function addToProfile(req, res){
+
+    try {
+        //Find the user
+        const UserModel = await CustomerModel.findById(req.params.customerId);
+        //add the project id to the customerDoc.project array
+        customerDoc.project.push(req.body.projectId);
+        // we mutated the customerDoc, so we have to tell the database
+        await customerDoc.save()
+        res.redirect(`/customers/${req.params.customerId}`)
+    } catch(err){
+		console.log(err)
+		res.send(err)
+	}
 }
 
 async function show(req, res) {

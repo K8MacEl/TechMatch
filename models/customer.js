@@ -10,6 +10,7 @@ const CustomerSchema = new Schema ({
 
     userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
     description: String,
+    customerType: String,
     link: String,
     timeZone: String, 
 });
