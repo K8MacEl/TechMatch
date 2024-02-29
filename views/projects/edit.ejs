@@ -1,4 +1,5 @@
 <%- include('../partials/header') %>
+<% if (user) { %>
 <body class="edit_project_page">
     <section class="edit_project_section">
         <form action="/projects/<%= project._id %>?_method=PUT" method="POST" class="update_project">  
@@ -43,4 +44,9 @@
         </form>
     </section>
 </body>
+<% } else { %>
+    <main class="login_prompt">
+      <h2>LOGIN WITH YOUR GOOGLE ACCOUNT TO GET STARTED</h2>
+    </main>
+    <% } %>
   <%- include('../partials/footer') %>, 

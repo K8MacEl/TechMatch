@@ -1,20 +1,18 @@
 <%- include('../partials/header') %>
 <% if (user) { %>
 <h1 id="user_header">My Details</h1>
-<table class="users">
-    <tbody>
-
-      <% customerDocs.forEach(function(project) { %>
-        <tr>
-          <td id="avatar"><img alt="avatar" src="<%= user.avatar %>"
-            referrerpolicy="no-referrer">
-            <td id="userName"><%=user.name %></td>
-            <td id="profile_link"><a href="/customers/<%= user._id %>">View Profile</a></td>
-          
-            <td id="project_link"><a href="/projects/<%=project._id %>">View Projects</a></td>
-       <% }); %>
+<table class="user_profile">
+      <td id="avatar"><img alt="avatar" src="<%= user.avatar %>"
+        referrerpolicy="no-referrer">
+        <td id="userName"><%=user.name %></td>
+        <td id="show_email"><strong> Email:</strong>
+          <%= user.email %>
+        </td>
+        <% customerDocs.forEach(function(customer) { %>
+          <tr>
+            <td><a href="/customers/<%= customer._id %>">PROFILE DETAILS</a></td>
           </tr>
-      </tbody>
+          <% }); %>
     </table>
     <% } else { %>
       <main class="login_prompt">

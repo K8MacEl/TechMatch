@@ -23,21 +23,7 @@ async function deleteOne(req, res){
     }
 }
 
-async function show(req, res) {
-    try {
-        const customerFromTheDB = await CustomerModel.findById(req.params.customerId)
-        console.log(customerFromTheDB);
-        if (!customerFromTheDB){
-            return res.status(404).render('Customer profile not found."');
-        }
-         res.render('customers/show', { customer: customerFromTheDB });
-         //the key customer becomes a varibale name in show.ejs
-         //res.redirect(`/customers/${customerDoc._id}`)
-    } catch (err) {
-        console.log(err)
-        res.send(err);
-    }
-}
+
 
 async function index(req, res) {
     //then we want to send an eja page with all the customers to browers
@@ -78,4 +64,20 @@ async function create(req, res) {
 function newCustomer(req, res) {
     console.log('new user added')
     res.render('customers/new', { title: "Add User" });
+}
+
+async function show(req, res) {
+    try {
+        const customerFromTheDB = await CustomerModel.findById(req.params.customerId)
+        console.log(customerFromTheDB);
+        if (!customerFromTheDB){
+            return res.status(404).render('Customer profile not found."');
+        }
+         res.render('customers/show', { customer: customerFromTheDB });
+         //the key customer becomes a varibale name in show.ejs
+         //res.redirect(`/customers/${customerDoc._id}`)
+    } catch (err) {
+        console.log(err, "cant get to customer show page")
+        res.send(err);
+    }
 }

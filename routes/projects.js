@@ -18,7 +18,7 @@ router.post('/', projectCtrl.create)
 // //PUT update the project
 //router.put('/:projectId', projectCtrl.update)
 
-// //GET EDIT
+//GET EDIT
 //router.get('/:projectId/edit',projectCtrl.edit)
 
 module.exports = router; 
