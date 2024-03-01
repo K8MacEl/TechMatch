@@ -9,25 +9,9 @@ module.exports = {
     show,
     update,
     edit,
-    addToProfile,   
+    
 }
 
-async function addToProfile(req, res){
-
-    try {
-        //find the customer (req.params comes from the http request)
-        const customerDoc = await CustomerModel.findById(req.params.customerId);
-        //add the project id to the customerDoc.project array
-        customerDoc.projects.push(req.body.projectId);
-        //we mutated the customerDoc, so we have to tell the database!
-        await customerDoc.save()
-        //redirect the client back to the customer show page
-        res.render(`customers/${req.params.customerId}`)
-    } catch(err){
-        console.log(err)
-        res.send(err)
-    }
-}
 
 async function show(req, res) {
     try {

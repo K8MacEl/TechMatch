@@ -21,7 +21,4 @@ router.put('/:projectId', projectCtrl.update)
 //GET EDIT
 router.get('/:projectId/edit',projectCtrl.edit)
 
-//POST the projects for that customer in their show profile
-router.post('/customers/:customerId/projects', projectCtrl.addToProfile);
-
 module.exports = router; 

@@ -115,31 +115,4 @@ async function allCustomers(req, res) {
     }
 }
 
-    async function edit(req, res) {
-        console.log('------profile being edited--------')
-
-        const customerDoc = await CustomerModel.findOne({ _id: req.params.customerId, })
-        res.render('customers/edit', { customer: customerDoc });
-    }
-
-    async function update(req, res) {
-        try {
-            //when the edit project form is submitted, the update action will need to find the project 
-            let profileUpdated = await CustomerModel.findOne({ '_id': req.params.customerId });
-            console.log(profileUpdated, "---PROFILE FOUND")
-
-            ///check if the customer was found
-            if (!profileUpdate) {
-                return res.status(404).send("PROFILE NOT FOUND");
-            }
-            //update the body of the customer form
-            await CustomerModel.findOneAndUpdate({ '_id': req.params.customerId }, req.body.customer);
-            console.log("--PROFILE UPDATED");
-
-            //redirect to the custsomer's show page
-            res.redirect(`/customers/${req.params.customerId}`);
-        } catch (err) {
-            console.log(err.message);
-            res.status(500).send("Error updating customer profile");
-        }
-    }
+   
