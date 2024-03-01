@@ -14,7 +14,7 @@ To use Tech Match Log click here: https://vast-pear-sheep-sock.cyclic.app/
 
 This project uses Express, Node.js, and MongoDB as well as OAuth Middleware for the login requirements. Additinally, CSS and HTML were used for content. 
 
-This project iS s CRUD project, the user may CREATE a profile as well as many projects, the user may READ profiles and projects, the user may UPDATE projects, and the user may DELETE their profile.
+This project is s CRUD project, the user may CREATE a profile as well as many projects, the user may READ profiles and projects, the user may UPDATE projects, and the user may DELETE their profile.
 
 
 ## Getting Started
