@@ -26,12 +26,15 @@
         <%= project.projectDetails %>
       </td>
       </select>
+      <td id="project_owner"><strong>Project Owner</strong> 
+        <%= project.project_owner %> 
+      </td>
       </form>
       </td>
       <br><br>
       <form action="/projects/<%= project._id %>/edit/">
         <button id="edit" type="edit">EDIT PROJECT</button>
-      </section>
+      </section>      
     </body>
     <% } else { %>
       <main class="login_prompt">

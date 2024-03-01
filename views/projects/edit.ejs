@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <% if (user) { %>
 <body class="edit_project_page">
-    <div id="edit_header"><h2>Edit Project Details:</h2>
+    <div id="edit_header">Edit Project Details
     </div>
     <section class="edit_project_section">
         <form action="/projects/<%= project._id %>?_method=PUT" method="POST" class="update_project">  
@@ -41,6 +41,9 @@
             <input id="details" value="<%= project.projectDetails %>" type="text" name="projectDetails">
         </label>
         <br><br>
+        <label><strong>Project Owner</strong>
+            <input id="project_owner" type="text" name="project_owner">
+            </label>
         <button id="update_project" value="" type="submit">Update Project</button>
         </form>
     </section>

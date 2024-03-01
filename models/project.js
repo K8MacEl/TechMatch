@@ -11,8 +11,9 @@ languagesNeeded: String,
 budget: Number,
 startDate: Date,
 endDate: Date,
-projectDetails: String, 
-projectOwner: {type: Schema.Types.ObjectId, ref: "Customer"}
+projectDetails: String,
+projectOwner: String, 
+projectCustomer: {type: Schema.Types.ObjectId, ref: "Customer"}
 })
 
 module.exports = mongoose.model('Project', ProjectSchema)

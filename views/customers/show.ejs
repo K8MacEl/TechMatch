@@ -2,8 +2,9 @@
   <% if (user) { %>
 
     <body>
-      <div id="show_header">Profile</div>
-      <tbody>
+        <div id="show_header">Profile
+        </div>
+          <tbody>
         <div class="customer_profile">
           <td id="show_name"><strong>Name:</strong>
             <%= customer.name %>
@@ -34,9 +35,9 @@
           <button id="delete_profile" type="submit">DELETE CUSTOMER PROFILE
           </button>
         </form>
-              </tr>
-            </section>
-          </form>  
+        </tr>
+        </section>
+        </form>
       </tbody>
     </body>
     <% } else { %>

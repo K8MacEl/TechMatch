@@ -31,18 +31,10 @@ async function addToProfile(req, res){
 
 async function show(req, res) {
     try {
-        const projectFromTheDB = await ProjectModel.findById(req.params.projectId).populate("projectOwner").exec();
-        console.log(projectFromTheDB, "projectsFromTheDB")
-
-        //we need to search the databse for all the customers that do not own the project
-        //so whose customerId is NOT in the projectFromTheDB.projectOwner array
-        const customersNotTheProjectOwner = await CustomerModel.find({_id: {$nin: projectFromTheDB.projectOwner}}).populate("userId").exec();
-        //$nin MongoDB comparision query opertaions 
-        console.log(customersNotTheProjectOwner, '<----customers NOT THE PROJECT OWNER')
+        const projectFromTheDB = await ProjectModel.findById(req.params.projectId).populate("projectOwner");
         //express is changing the ejs into html and sending it to the brower (client side/frontend)
         res.render("projects/show", {
-            project: projectFromTheDB, //the key project becomes a variable in the project/show.ejs
-            customers: customersNotTheProjectOwner
+            project: projectFromTheDB, //the key project becomes a variable in the project/show.ejs     
         });
 
     } catch (err) {
