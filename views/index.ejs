@@ -14,13 +14,17 @@
     <nav class="navbar">
       <div class="menu">
         <% if (user) { %>
-          <a href="/customers">MY DETAILS </a>
-          <a href="/projects/new"> CREATE A PROJECT </a>
-          <a href="/customers/new">CREATE A NEW PROFILE </a>
-          <a href="/projects/">ALL TECH MATCH PROJECTS</a>
-          <a href="/customers/all" > ALL TECH MATCH USERS</a>
-        </div>
-      <a href="/logout" id="logout">LOG OUT</a>
+      		<div class="dropdown">
+            <a href="#" class="dropbtn">MENU</a>
+              <div class="dropdown-content">
+                <a href="/customers" >MY DETAILS</a>
+                <a href="/projects/new"	> CREATE A PROJECT</a>
+                <a href="/customers/new" >CREATE A NEW PROFILE</a>
+                <a href="/projects" >ALL TECH MATCH PROJECTS</a>
+                <a href="/customers/all" > ALL TECH MATCH USERS</a>
+                <a href="/logout" id="logout">LOG OUT</a>
+              </div>
+          </div>
       <% } else { %>
         <a href="/auth/google" id="login">Login with your Google Account to Get Started&nbsp;<img
             src="https://i.imgur.com/FHjYyi0.png"></a>
