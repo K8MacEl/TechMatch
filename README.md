@@ -1,35 +1,43 @@
-# passport-boilerplate
+# Tech Match
+
+Tech Match is a program that allows programmers and project makers to connect and post projects for hire.
+
+<a href="https://imgur.com/2GX6N23"><img src="https://i.imgur.com/2GX6N23l.png" title="source: imgur.com" /></a>
 
 
-This is your passport boilerplate.
+## Technology and Coding
 
-## Setup 
+This project uses Express, Node.js, and MongoDB as well as OAuth Middleware for the login requirements. Additinally, CSS and HTML were used for content. 
 
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+This project iS s CRUD project, the user may CREATE a profile as well as many projects, the user may READ profiles and projects, the user may UPDATE projects, and the user may DELETE their profile.
 
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin main`
+## Getting Started
 
-#### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
+<a href="https://imgur.com/jKCDpbj"><img src="https://i.imgur.com/jKCDpbjl.png" title="source: imgur.com" /></a>
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
+In order to view any of the information the user is prompted to log in using a Google Authenicator. This protects the information of the users posting information and also encourages more authentic use of the app. By using a Google Authenticator rather than storing an email and password in the database ensures better security.
 
-#### Make a commit 
+<a href="https://imgur.com/l4ogacC"><img src="https://i.imgur.com/l4ogacCl.png" title="source: imgur.com" /></a>
 
-```git commit -m "setup up oauth and User Model"```
+## Tech Match Concept 
+In the world of programming and project management we all find ourselves on one end of the the below diagram, we have skills to build projects or projects to build. Often those two groups do not match up, until Tech Match! 
+<a href="https://imgur.com/SeunRy6"><img src="https://i.imgur.com/SeunRy6l.png" title="source: imgur.com" /></a>
+
+## Basic User Experience
+
+Once the user logs in for the first time, they will see their basic information which is pulled from Google. Then the user may create a customer profile and select if they would like to be a client or a programmer. They may also provide basic information and a link to either a GitHub or a website. 
+
+Then they may create and view projects. The projects have budgets and programming/skills assigned to them to allow for the user to find projects within their scope. The user may also view start dates and deadlines for projects.
+
+The user of the project may edit the project if the needs change along the way. There is a many to one relationship as a user can have many projects. Additionally, there is one to one relationship with the user to the client profile as its restricted to one profile per user. If a a user tries to create a second profile with the same Google account, they will be redirected back to their profile. They may delete that profile and then create a new one if those wish. 
+
+The user may also view other profiles and connect with those users. 
+
+<a href="https://imgur.com/i6RizUr"><img src="https://i.imgur.com/i6RizUrl.png" title="source: imgur.com" /></a>
+
+## IceBox Items
+
+Embedding the projects within the user profiles.
+Creating a review feature for users to review others.
+Searching capabilities with filter options to find projects within set filters.
