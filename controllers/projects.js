@@ -15,7 +15,7 @@ module.exports = {
 
 async function show(req, res) {
     try {
-        const projectFromTheDB = await ProjectModel.findById(req.params.projectId).populate("projectOwner");
+        const projectFromTheDB = await ProjectModel.findById(req.params.projectId).populate("projectCustomer");
         //express is changing the ejs into html and sending it to the brower (client side/frontend)
         res.render("projects/show", {
             project: projectFromTheDB, //the key project becomes a variable in the project/show.ejs     

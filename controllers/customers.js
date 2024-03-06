@@ -50,7 +50,27 @@ async function create(req, res) {
 
 
         req.body.userId = req.user._id
-
+        async function create(req, res) {
+            //To find the user
+            console.log('====================================')
+            console.log(req.body, '<-------req.body')
+            console.log('====================================')
+            try {
+        
+        
+                req.body.userId = req.user._id
+                // YOU CAN ADD THIS LINE
+                console.log(req.user)
+                req.body.name = req.user.name
+                const customerDocumentsFromTheDB = await CustomerModel.create(req.body);
+                console.log(customerDocumentsFromTheDB)
+                res.redirect(`/customers/${customerDocumentsFromTheDB._id}`)
+        
+            } catch (err) {
+                console.log(err);
+                res.render("customers/new", { errorMsg: err.message });
+            }
+        }
         const customerDocumentsFromTheDB = await CustomerModel.create(req.body);
         console.log(customerDocumentsFromTheDB)
         res.redirect(`/customers/${customerDocumentsFromTheDB._id}`)
