@@ -17,7 +17,9 @@ async function show(req, res) {
     try {
         const projectFromTheDB = await ProjectModel.findById(req.params.projectId).populate("projectCustomer");
         //express is changing the ejs into html and sending it to the brower (client side/frontend)
-        res.render("projects/show", {
+        
+        console.log("This is projectsfromtheBD check to see customer--->", projectFromTheDB)
+            res.render("projects/show", {
             project: projectFromTheDB, //the key project becomes a variable in the project/show.ejs     
         });
 
@@ -33,6 +35,8 @@ async function create(req, res) {
     console.log(req.body, "< ---- req.body")
     console.log('====================================')
     try {
+        const customer = await CustomerModel.findOne({userId: req.user._id})
+        req.body.projectCustomer = customer._id
         //req.params.id comes from the http request from the projects show page from the routes/projects route
         const projectDoc = await ProjectModel.create(req.body);
         console.log(projectDoc)
