@@ -3,7 +3,7 @@
 
 
 
-Tech Match is a program that allows programmers and project makers to connect and post projects for hire. Note: It is currenly not deployed. 
+Tech Match is a program that allows programmers and project makers to connect and post projects for hire. 
 
 
 ## Launch App and Getting Started
