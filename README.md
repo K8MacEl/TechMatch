@@ -3,13 +3,11 @@
 
 
 
-Tech Match is a program that allows programmers and project makers to connect and post projects for hire.
+Tech Match is a program that allows programmers and project makers to connect and post projects for hire. Note: It is currenly not deployed. 
 
 
 ## Launch App and Getting Started
 
-
-To use Tech Match Log click here: https://vast-pear-sheep-sock.cyclic.app/
 
 
 To view the Trello Board with the Project's Planning: https://trello.com/invite/b/sQMWW3vl/ATTI780da2363039fbd66fdf05f41f4cb7cfD0EF2EFB/sei-project-two-tech-match
